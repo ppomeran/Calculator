@@ -35,6 +35,8 @@ class ViewController: UIViewController {
         case "+": performOperation { $0 + $1 }
         case "−": performOperation { $1 - $0 }
         case "√": performOneArgumentOperation { sqrt($0) }
+        case "sin": performOneArgumentOperation { sin($0) }
+        case "cos": performOneArgumentOperation { cos($0) }
         default: break
         }
     }
