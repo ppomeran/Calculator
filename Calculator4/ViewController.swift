@@ -62,17 +62,20 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
+        decimalIsPressed = false
         operandStack.append(displayValue)
+        history.text = "\(displayValue)"
         print("operandStack = \(operandStack)")
     }
     
     var decimalIsPressed = false
     
     @IBAction func decimal() {
-        userIsInTheMiddleOfTypingANumber = true
-        if decimalIsPressed == false {
-            display.text = display.text! + "."
-            decimalIsPressed = true
+        if userIsInTheMiddleOfTypingANumber == true {
+            if decimalIsPressed == false {
+                display.text = display.text! + "."
+                decimalIsPressed = true
+            }
         }
     }
     
