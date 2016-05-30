@@ -11,8 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var history: UILabel!
     
     var userIsInTheMiddleOfTypingANumber = false
+    let piValue = M_PI
 
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -37,6 +39,7 @@ class ViewController: UIViewController {
         case "√": performOneArgumentOperation { sqrt($0) }
         case "sin": performOneArgumentOperation { sin($0) }
         case "cos": performOneArgumentOperation { cos($0) }
+        //case "π": performOneArgumentOperation { M_PI * $0 }
         default: break
         }
     }
@@ -61,6 +64,35 @@ class ViewController: UIViewController {
         userIsInTheMiddleOfTypingANumber = false
         operandStack.append(displayValue)
         print("operandStack = \(operandStack)")
+    }
+    
+    var decimalIsPressed = false
+    
+    @IBAction func decimal() {
+        userIsInTheMiddleOfTypingANumber = true
+        if decimalIsPressed == false {
+            display.text = display.text! + "."
+            decimalIsPressed = true
+        }
+    }
+    
+    @IBAction func pi() {
+        userIsInTheMiddleOfTypingANumber = true
+        if display.text != "0" {
+            enter()
+            display.text = "\(piValue)"
+            enter()
+        } else {
+            display.text = "\(piValue)"
+            enter()
+        }
+    }
+    
+    @IBAction func clear() {
+        userIsInTheMiddleOfTypingANumber = false
+        operandStack.removeAll()
+        display.text = "0"
+        enter()
     }
     
     var displayValue: Double {

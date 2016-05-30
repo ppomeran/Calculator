@@ -140,6 +140,9 @@
                                 <rect key="frame" x="28" y="503" width="102.5" height="89"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="."/>
+                                <connections>
+                                    <action selector="decimal" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Rt-ai-xpi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcP-yt-ypu">
                                 <rect key="frame" x="359" y="503" width="102.5" height="89"/>
@@ -161,6 +164,9 @@
                                 <rect key="frame" x="28" y="114" width="102.5" height="89"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="C"/>
+                                <connections>
+                                    <action selector="clear" destination="BYZ-38-t0r" eventType="touchUpInside" id="nD8-Kq-Jdn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwj-si-IEz">
                                 <rect key="frame" x="138.5" y="114" width="102.5" height="89"/>
@@ -196,6 +202,7 @@
                                 <state key="normal" title="π"/>
                                 <connections>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yx7-kS-eKv"/>
+                                    <action selector="pi" destination="BYZ-38-t0r" eventType="touchUpInside" id="4II-Gi-sBm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQx-Z7-oV1">
@@ -329,6 +336,7 @@
                     </view>
                     <connections>
                         <outlet property="display" destination="AjZ-Zk-5h4" id="HiY-lL-9nD"/>
+                        <outlet property="history" destination="kQx-Z7-oV1" id="Xtl-Lb-qge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
