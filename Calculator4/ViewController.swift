@@ -14,15 +14,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var history: UILabel!
     
     var userIsInTheMiddleOfTypingANumber = false
-    let piValue = M_PI
 
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
+        
         if userIsInTheMiddleOfTypingANumber {
-            display.text = display.text! + digit
+            if digit == "." {
+                if (display.text!.rangeOfString(".") == nil) {
+                    display.text = display.text! + "."
+                }
+            } else {
+                display.text = display.text! + digit
+            }
         } else {
-            display.text = digit
-            userIsInTheMiddleOfTypingANumber = true
+            if digit == "." {
+                display.text = "0."
+                userIsInTheMiddleOfTypingANumber = true
+            } else {
+                display.text = digit
+                userIsInTheMiddleOfTypingANumber = true
+            }
         }
     }
     
@@ -39,7 +50,6 @@ class ViewController: UIViewController {
         case "√": performOneArgumentOperation { sqrt($0) }
         case "sin": performOneArgumentOperation { sin($0) }
         case "cos": performOneArgumentOperation { cos($0) }
-        //case "π": performOneArgumentOperation { M_PI * $0 }
         default: break
         }
     }
@@ -62,22 +72,12 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        decimalIsPressed = false
         operandStack.append(displayValue)
         history.text = "\(displayValue)"
         print("operandStack = \(operandStack)")
     }
     
-    var decimalIsPressed = false
-    
-    @IBAction func decimal() {
-        if userIsInTheMiddleOfTypingANumber == true {
-            if decimalIsPressed == false {
-                display.text = display.text! + "."
-                decimalIsPressed = true
-            }
-        }
-    }
+    let piValue = M_PI
     
     @IBAction func pi() {
         userIsInTheMiddleOfTypingANumber = true
