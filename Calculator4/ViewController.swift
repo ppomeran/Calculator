@@ -20,7 +20,6 @@ extension UILabel {
             } else {
                 self.text = ""
             }
-            //userIsInTheMiddleOfTypingANumber = false
         }
     }
 }
@@ -99,7 +98,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @IBAction func appendSign(sender: UIButton) {
         if userIsInTheMiddleOfTypingANumber && display.value != nil {
             display.value = -display.value!
@@ -115,4 +113,3 @@ class ViewController: UIViewController {
         brain.clearOpStack()
     }
 }
-

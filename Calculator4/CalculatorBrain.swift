@@ -61,7 +61,6 @@ class CalculatorBrain {
         }
     }
     
-// Initializer in CalculatorBrain
     init() {
         func learnOp(op: Op) {
             knownOps[op.description] = op
@@ -152,5 +151,4 @@ class CalculatorBrain {
     func clearOpStack() {
         opStack.removeAll()
     }
-    
 }
